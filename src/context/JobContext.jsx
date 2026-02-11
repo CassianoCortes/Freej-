@@ -4,11 +4,7 @@ import { jobs as initialJobs } from "../mock/jobs";
 const JobContext = createContext();
 
 export function JobProvider({ children }) {
-  const [user, setUser] = useState(() => {
-  const storedUser = localStorage.getItem("freeja:user");
-  return storedUser ? JSON.parse(storedUser) : null;
-});
-
+  const [jobs, setJobs] = useState(initialJobs);
 
   function acceptJob(jobId, userId) {
     setJobs((prevJobs) =>
